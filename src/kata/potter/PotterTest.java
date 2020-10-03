@@ -32,35 +32,31 @@ class PotterTest {
 
     @Test
     public void twoDifferentBooksHave5PercentDiscount() {
-        this._potter.addBook(0, 1);
-        this._potter.addBook(1, 1);
+        this._potter.addBook(0).addBook(1);
         assertEquals(0.95 * 16, this._potter.cost());
     }
 
     @Test
     public void threeDifferentBooksHave10PercentDiscount() {
-        this._potter.addBook(0, 1);
-        this._potter.addBook(1, 1);
-        this._potter.addBook(2, 1);
+        this._potter.addBook(0).addBook(1).addBook(2);
         assertEquals(0.9 * 3 * 8, this._potter.cost());
     }
 
     @Test
     public void fourDifferentBooksHave20PercentDiscount() {
-        this._potter.addBook(0, 1);
-        this._potter.addBook(1, 1);
-        this._potter.addBook(2, 1);
-        this._potter.addBook(3, 1);
+        this._potter.addBook(0).addBook(1).addBook(2).addBook(3);
         assertEquals(0.80 * 4 * 8, this._potter.cost());
     }
 
     @Test
     public void fiveDifferentBooksHave25PercentDiscount() {
-        this._potter.addBook(0, 1);
-        this._potter.addBook(1, 1);
-        this._potter.addBook(2, 1);
-        this._potter.addBook(3, 1);
-        this._potter.addBook(4, 1);
+        this._potter.addBook(0).addBook(1).addBook(2).addBook(3).addBook(4);
         assertEquals(0.75 * 5 * 8, this._potter.cost());
+    }
+
+    @Test
+    public void discountTwoSameOneDifferent() {
+        this._potter.addBook(0, 2).addBook(1);
+        assertEquals(8 + (16 * 0.95), this._potter.cost());
     }
 }
