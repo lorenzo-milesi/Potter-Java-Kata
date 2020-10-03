@@ -12,7 +12,7 @@ public class Potter {
     }
 
     public double cost() {
-        return this._books.stream().filter(book -> book > 0).mapToDouble(book -> 8).sum();
+        return this._books.stream().mapToDouble(bookQty -> 8 * bookQty).sum();
     }
 
     public Potter addBook(int book) {
@@ -23,5 +23,9 @@ public class Potter {
         Integer originalQty = this._books.get(book);
         this._books.set(book, originalQty + qty);
         return this;
+    }
+
+    public ArrayList<Integer> showCart() {
+        return this._books;
     }
 }

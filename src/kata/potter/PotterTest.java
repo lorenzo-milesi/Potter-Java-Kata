@@ -20,8 +20,15 @@ class PotterTest {
 
     @Test
     public void oneBookCosts8() {
-        this._potter.addBook(1);
+        this._potter.addBook(0);
         assertEquals(8, this._potter.cost());
+    }
+
+    @Test
+    public void twoSameBooksCost16() {
+        this._potter.addBook(0, 2);
+        System.out.println(this._potter.showCart());
+        assertEquals(16, this._potter.cost());
     }
 
 }
