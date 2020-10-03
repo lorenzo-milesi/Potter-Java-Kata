@@ -18,8 +18,8 @@ public class Potter {
         ArrayList<ArrayList<Integer>> decompositions = this.decompositions();
 
         double total = 0;
-        for (int i = 0; i < decompositions.size(); i++) {
-            total += decompositionCost(decompositions.get(i));
+        for (ArrayList<Integer> decomposition : decompositions) {
+            total += decompositionCost(decomposition);
         }
 
         return total;
