@@ -16,6 +16,9 @@ public class Potter {
         if (Arrays.stream(this.binaryDecomposition()).sum() == 2) {
             return value * 0.95;
         }
+        if (Arrays.stream(this.binaryDecomposition()).sum() == 3) {
+            return value * 0.9;
+        }
         return value;
     }
 

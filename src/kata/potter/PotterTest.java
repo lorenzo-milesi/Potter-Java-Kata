@@ -37,4 +37,11 @@ class PotterTest {
         assertEquals(0.95 * 16, this._potter.cost());
     }
 
+    @Test
+    public void threeDifferentBooksHave10PercentDiscount() {
+        this._potter.addBook(0, 1);
+        this._potter.addBook(1, 1);
+        this._potter.addBook(2, 1);
+        assertEquals(0.9 * 3 * 8, this._potter.cost());
+    }
 }
