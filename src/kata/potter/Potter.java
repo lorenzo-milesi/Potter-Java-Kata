@@ -12,7 +12,11 @@ public class Potter {
     }
 
     public double cost() {
-        return this._books.stream().mapToDouble(bookQty -> 8 * bookQty).sum();
+        double value = this._books.stream().mapToDouble(bookQty -> 8 * bookQty).sum();
+        if (Arrays.stream(this.binaryDecomposition()).sum() == 2) {
+            return value * 0.95;
+        }
+        return value;
     }
 
     public Potter addBook(int book) {
@@ -27,5 +31,22 @@ public class Potter {
 
     public ArrayList<Integer> showCart() {
         return this._books;
+    }
+
+    /**
+     * Cart binary decomposition.
+     * The aim is to get a binary representation of distinct books examples :
+     * [ 1, 1, 0, 0, 0 ] means that I bought 2 different books (the first and the second) no matter how many of each I bought.
+     *
+     * @return int[] : an array of int (only 0 or 1).
+     */
+    private int[] binaryDecomposition() {
+        int[] binaryDecomposition = new int[]{0, 0, 0, 0, 0};
+        for (int i = 0; i < 5; i++) {
+            if (this._books.get(i) > 0) {
+                binaryDecomposition[i] = 1;
+            }
+        }
+        return binaryDecomposition;
     }
 }
