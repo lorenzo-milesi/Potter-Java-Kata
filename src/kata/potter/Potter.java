@@ -76,10 +76,6 @@ public class Potter {
         return this;
     }
 
-    public ArrayList<Integer> showCart() {
-        return this._books;
-    }
-
     /**
      * Cart binary decomposition.
      * The aim is to get a binary representation of distinct books examples :
