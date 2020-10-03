@@ -14,8 +14,14 @@ class PotterTest {
     }
 
     @Test
-    public void noBooksShouldCost0() {
+    public void noBookCosts0() {
         assertEquals(0, this._potter.cost());
+    }
+
+    @Test
+    public void oneBookCosts8() {
+        this._potter.addBook(1);
+        assertEquals(8, this._potter.cost());
     }
 
 }
