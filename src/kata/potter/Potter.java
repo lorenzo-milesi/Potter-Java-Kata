@@ -13,6 +13,16 @@ public class Potter {
         Collections.fill(this._books, 0);
     }
 
+    public Potter addBook(int book) {
+        return this.addBook(book, 1);
+    }
+
+    public Potter addBook(int book, int qty) {
+        Integer originalQty = this._books.get(book);
+        this._books.set(book, originalQty + qty);
+        return this;
+    }
+
     public double cost() {
 
         ArrayList<ArrayList<Integer>> decompositions = this.decompositions();
@@ -64,16 +74,6 @@ public class Potter {
             default -> 1;
         };
         return value * discountRate;
-    }
-
-    public Potter addBook(int book) {
-        return this.addBook(book, 1);
-    }
-
-    public Potter addBook(int book, int qty) {
-        Integer originalQty = this._books.get(book);
-        this._books.set(book, originalQty + qty);
-        return this;
     }
 
     /**
