@@ -44,4 +44,23 @@ class PotterTest {
         this._potter.addBook(2, 1);
         assertEquals(0.9 * 3 * 8, this._potter.cost());
     }
+
+    @Test
+    public void fourDifferentBooksHave20PercentDiscount() {
+        this._potter.addBook(0, 1);
+        this._potter.addBook(1, 1);
+        this._potter.addBook(2, 1);
+        this._potter.addBook(3, 1);
+        assertEquals(0.80 * 4 * 8, this._potter.cost());
+    }
+
+    @Test
+    public void fiveDifferentBooksHave25PercentDiscount() {
+        this._potter.addBook(0, 1);
+        this._potter.addBook(1, 1);
+        this._potter.addBook(2, 1);
+        this._potter.addBook(3, 1);
+        this._potter.addBook(4, 1);
+        assertEquals(0.75 * 5 * 8, this._potter.cost());
+    }
 }

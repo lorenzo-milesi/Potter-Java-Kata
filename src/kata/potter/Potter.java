@@ -13,13 +13,14 @@ public class Potter {
 
     public double cost() {
         double value = this._books.stream().mapToDouble(bookQty -> 8 * bookQty).sum();
-        if (Arrays.stream(this.binaryDecomposition()).sum() == 2) {
-            return value * 0.95;
-        }
-        if (Arrays.stream(this.binaryDecomposition()).sum() == 3) {
-            return value * 0.9;
-        }
-        return value;
+        double discountRate = switch (Arrays.stream(this.binaryDecomposition()).sum()) {
+            case 2 -> 0.95;
+            case 3 -> 0.9;
+            case 4 -> 0.8;
+            case 5 -> 0.75;
+            default -> 1;
+        };
+        return value * discountRate;
     }
 
     public Potter addBook(int book) {
